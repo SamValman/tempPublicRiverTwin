@@ -14,4 +14,4 @@ The function has the ability to create tiles or to use existing temporary tiles.
 The original issue: https://stackoverflow.com/questions/74643697/tensorflow-datasets-gpu-memory?noredirect=1#comment131753470_74643697
 is best explained here. 
 
-I have used a depreciated tf.compat.v1.Session as sess: code which seems to have utilised the GPU but is causing other errors such as x: 
+I have used a depreciated tf.compat.v1.Session as sess: code which seems to have utilised the GPU but is causing other errors. These appear to be around the Section 1:C:3 function: ReloadTraining data line 527 in TrainRiverTwinWaterMask
