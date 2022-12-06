@@ -86,6 +86,8 @@ def Train_RiverTwinWaterMask(newTrainingData=True, trainingFolder='',
     # tileSize = 32
     # balanceTrainingData = 1
     
+    # for v1 run this was recommended
+    tf.compat.v1.enable_eager_execution()
     
     #Section One:  Training data 
     if newTrainingData: 
@@ -544,6 +546,10 @@ def reloadTrainingData(folder, epoch, bs):
         testing dataset
 
     '''
+    
+    #############
+    # the len(ds) was changed to tf.data.cardinality but I couldn't make it work so was eventually hardcoded. 
+    ##################
     #get a file path that will find all the water and all the land images
     data_dir = folder + '/*/*'
 
@@ -556,6 +562,7 @@ def reloadTrainingData(folder, epoch, bs):
     ds = ds.prefetch(1) #.repeat(epoch)
 
     # set validation size
+    
     training_size = int(len(ds)*0.66)
     
     # splits datset into test and validation
